@@ -853,6 +853,10 @@
         "userAdded": false
       },
       {
+        "file": "assets/NewSprite25.png",
+        "kind": "image",
+        "metadata": "{\"extension\":\".png\"}",
+        "name": "NewSprite24",
         "file": "map.jpg",
         "kind": "image",
         "metadata": "",
@@ -3159,6 +3163,8 @@
         {
           "adaptCollisionMaskAutomatically": true,
           "assetStoreId": "",
+          "name": "test_1213",
+          "persistentUuid": "1ab4b558-58a4-43de-bdf4-d7e2ee0d9f7e",
           "name": "NewSprite2",
           "persistentUuid": "385a1dfe-d1d6-43e8-901c-8dbaf556967b",
           "type": "Sprite",
@@ -3168,15 +3174,18 @@
           "behaviors": [],
           "animations": [
             {
+              "name": "NewSprite2",
               "name": "",
               "useMultipleDirections": false,
               "directions": [
                 {
                   "looping": false,
+                  "metadata": "{\"pskl\":{}}",
                   "timeBetweenFrames": 0.08,
                   "sprites": [
                     {
                       "hasCustomCollisionMask": true,
+                      "image": "NewSprite24",
                       "image": "tileset_city.png",
                       "points": [],
                       "originPoint": {
@@ -3255,6 +3264,7 @@
             "objectName": "thung_hang"
           },
           {
+            "objectName": "test_1213"
             "objectName": "NewSprite2"
           }
         ]
