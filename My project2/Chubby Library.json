@@ -857,6 +857,58 @@
         "kind": "image",
         "metadata": "{\"extension\":\".png\"}",
         "name": "NewSprite24",
+        "file": "map.jpg",
+        "kind": "image",
+        "metadata": "",
+        "name": "map.jpg",
+        "smoothed": true,
+        "userAdded": false
+      },
+      {
+        "file": "elements game ct528 .png",
+        "kind": "image",
+        "metadata": "",
+        "name": "elements game ct528 .png",
+        "smoothed": true,
+        "userAdded": false
+      },
+      {
+        "file": "assets/elements game ct528 .png",
+        "kind": "image",
+        "metadata": "{\"extension\":\".png\"}",
+        "name": "elements game ct528 ",
+        "smoothed": true,
+        "userAdded": false
+      },
+      {
+        "file": "elements game ct528  (resized2)-Photoroom.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "elements game ct528  (resized2)-Photoroom.png",
+        "smoothed": true,
+        "userAdded": false
+      },
+      {
+        "file": "elements game ct528 -Photoroom Resized 3.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "elements game ct528 -Photoroom Resized 3.png",
+        "smoothed": true,
+        "userAdded": false
+      },
+      {
+        "file": "assets/elements game ct528  (resized2)-Photoroom.png",
+        "kind": "image",
+        "metadata": "{\"extension\":\".png\"}",
+        "name": "elements game ct528  (resized2)-Photoroom",
+        "smoothed": true,
+        "userAdded": false
+      },
+      {
+        "file": "tileset_city.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "tileset_city.png",
         "smoothed": true,
         "userAdded": false
       }
@@ -872,8 +924,8 @@
     {
       "b": 255,
       "disableInputWhenNotFocused": true,
-      "mangledName": "Untitled_32scene",
-      "name": "Untitled scene",
+      "mangledName": "Canh_32thu_32nghiem",
+      "name": "Canh thu nghiem",
       "r": 247,
       "renderer3DWorldScale": 100,
       "standardSortMethod": true,
@@ -892,7 +944,7 @@
         "gridColor": 10401023,
         "gridAlpha": 0.8,
         "snap": false,
-        "zoomFactor": 0.5491564232262403,
+        "zoomFactor": 0.39415359482836415,
         "windowMask": false,
         "selectedLayer": "",
         "gameEditorMode": "instances-editor"
@@ -1013,15 +1065,15 @@
         {
           "angle": 0,
           "customSize": true,
-          "depth": 10,
-          "height": 719,
+          "depth": 12,
+          "height": 886,
           "keepRatio": true,
           "layer": "",
           "name": "NewTiledSprite",
           "persistentUuid": "75f16437-4392-484d-8ae6-93b9593dfe9a",
-          "width": 1280,
-          "x": 0,
-          "y": 0,
+          "width": 1577,
+          "x": -55,
+          "y": -40,
           "zOrder": 1,
           "numberProperties": [],
           "stringProperties": [],
@@ -1039,6 +1091,22 @@
           "x": 145,
           "y": 274,
           "zOrder": 5,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "keepRatio": true,
+          "layer": "",
+          "name": "NewSprite2",
+          "persistentUuid": "2e23cfaa-818f-4252-9b3b-7f7fc6dbb28c",
+          "width": 0,
+          "x": 565,
+          "y": 356,
+          "zOrder": 6,
           "numberProperties": [],
           "stringProperties": [],
           "initialVariables": []
@@ -3097,6 +3165,8 @@
           "assetStoreId": "",
           "name": "test_1213",
           "persistentUuid": "1ab4b558-58a4-43de-bdf4-d7e2ee0d9f7e",
+          "name": "NewSprite2",
+          "persistentUuid": "385a1dfe-d1d6-43e8-901c-8dbaf556967b",
           "type": "Sprite",
           "updateIfNotVisible": false,
           "variables": [],
@@ -3105,6 +3175,7 @@
           "animations": [
             {
               "name": "NewSprite2",
+              "name": "",
               "useMultipleDirections": false,
               "directions": [
                 {
@@ -3115,6 +3186,7 @@
                     {
                       "hasCustomCollisionMask": true,
                       "image": "NewSprite24",
+                      "image": "tileset_city.png",
                       "points": [],
                       "originPoint": {
                         "name": "origine",
@@ -3193,6 +3265,7 @@
           },
           {
             "objectName": "test_1213"
+            "objectName": "NewSprite2"
           }
         ]
       },
@@ -3202,7 +3275,6 @@
           "colorG": 176,
           "colorR": 74,
           "creationTime": 0,
-          "folded": true,
           "name": "Di chuyển + đổi pose nhân vật",
           "source": "",
           "type": "BuiltinCommonInstructions::Group",
@@ -3879,13 +3951,459 @@
           "type": "TileMap::TileMapBehavior"
         }
       ]
+    },
+    {
+      "b": 255,
+      "disableInputWhenNotFocused": true,
+      "mangledName": "Level_321_32Chinese_32Scene",
+      "name": "Level 1 Chinese Scene",
+      "r": 247,
+      "renderer3DWorldScale": 100,
+      "standardSortMethod": true,
+      "stopSoundsOnStartup": true,
+      "title": "",
+      "v": 249,
+      "uiSettings": {
+        "grid": false,
+        "gridType": "rectangular",
+        "gridWidth": 32,
+        "gridHeight": 32,
+        "gridDepth": 32,
+        "gridOffsetX": 0,
+        "gridOffsetY": 0,
+        "gridOffsetZ": 0,
+        "gridColor": 10401023,
+        "gridAlpha": 0.8,
+        "snap": false,
+        "zoomFactor": 0.36732575450588206,
+        "windowMask": false,
+        "selectedLayer": "",
+        "gameEditorMode": "instances-editor"
+      },
+      "objectsGroups": [],
+      "variables": [],
+      "instances": [
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 1,
+          "height": 968,
+          "keepRatio": true,
+          "layer": "",
+          "name": "Background_",
+          "opacity": 191,
+          "persistentUuid": "9edc926b-6ac8-4b24-8e3e-4fb48ec6e66c",
+          "width": 1452,
+          "x": -100,
+          "y": -164,
+          "zOrder": 1,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 1,
+          "height": 240,
+          "keepRatio": true,
+          "layer": "",
+          "name": "Canh_gac_",
+          "persistentUuid": "5128e3ff-3def-4891-85db-c2e48dce0054",
+          "width": 364,
+          "x": 86,
+          "y": 103,
+          "zOrder": 2,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        }
+      ],
+      "objects": [
+        {
+          "adaptCollisionMaskAutomatically": true,
+          "assetStoreId": "",
+          "name": "vat_can",
+          "persistentUuid": "1e284f16-0139-461f-9def-da58e623ba10",
+          "type": "Sprite",
+          "updateIfNotVisible": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "animations": [
+            {
+              "name": "elements game ct528 ",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": false,
+                  "metadata": "{\"pskl\":{}}",
+                  "timeBetweenFrames": 0.08,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": true,
+                      "image": "elements game ct528 ",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": [
+                        [
+                          {
+                            "x": 6,
+                            "y": 1
+                          },
+                          {
+                            "x": 49,
+                            "y": 1
+                          },
+                          {
+                            "x": 49,
+                            "y": 27
+                          },
+                          {
+                            "x": 6,
+                            "y": 27
+                          }
+                        ]
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "adaptCollisionMaskAutomatically": true,
+          "assetStoreId": "",
+          "name": "Background_",
+          "persistentUuid": "de447687-027c-47a7-88e4-3dba52c700f8",
+          "type": "Sprite",
+          "updateIfNotVisible": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "animations": [
+            {
+              "name": "",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": false,
+                  "timeBetweenFrames": 0.08,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": true,
+                      "image": "map.jpg",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": [
+                        [
+                          {
+                            "x": 0,
+                            "y": 0
+                          },
+                          {
+                            "x": 1800,
+                            "y": 0
+                          },
+                          {
+                            "x": 1800,
+                            "y": 1200
+                          },
+                          {
+                            "x": 0,
+                            "y": 1200
+                          }
+                        ]
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "adaptCollisionMaskAutomatically": true,
+          "assetStoreId": "",
+          "name": "Canh_gac_",
+          "persistentUuid": "cc9e4789-5d5f-4edb-928b-7f86afc26f26",
+          "type": "Sprite",
+          "updateIfNotVisible": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "animations": [
+            {
+              "name": "elements game ct528  (resized2)-Photoroom",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": false,
+                  "metadata": "{\"pskl\":{}}",
+                  "timeBetweenFrames": 0.08,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": true,
+                      "image": "elements game ct528  (resized2)-Photoroom",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": [
+                        [
+                          {
+                            "x": 72,
+                            "y": 22
+                          },
+                          {
+                            "x": 322,
+                            "y": 22
+                          },
+                          {
+                            "x": 322,
+                            "y": 233
+                          },
+                          {
+                            "x": 72,
+                            "y": 233
+                          }
+                        ]
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "objectsFolderStructure": {
+        "folderName": "__ROOT",
+        "children": [
+          {
+            "objectName": "vat_can"
+          },
+          {
+            "objectName": "Canh_gac_"
+          },
+          {
+            "objectName": "Background_"
+          }
+        ]
+      },
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "KeyFromTextJustPressed"
+              },
+              "parameters": [
+                "",
+                "\"Up\""
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "SetY"
+              },
+              "parameters": [
+                "NV",
+                "-",
+                "128"
+              ]
+            },
+            {
+              "type": {
+                "value": "AnimatableCapability::AnimatableBehavior::SetName"
+              },
+              "parameters": [
+                "NV",
+                "Animation",
+                "=",
+                "\"top\""
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "KeyFromTextJustPressed"
+              },
+              "parameters": [
+                "",
+                "\"Down\""
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "SetY"
+              },
+              "parameters": [
+                "NV",
+                "+",
+                "128"
+              ]
+            },
+            {
+              "type": {
+                "value": "AnimatableCapability::AnimatableBehavior::SetName"
+              },
+              "parameters": [
+                "NV",
+                "Animation",
+                "=",
+                "\"bot\""
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [],
+          "actions": []
+        }
+      ],
+      "layers": [
+        {
+          "ambientLightColorB": 200,
+          "ambientLightColorG": 200,
+          "ambientLightColorR": 200,
+          "camera2DPlaneMaxDrawingDistance": 5000,
+          "camera3DFarPlaneDistance": 10000,
+          "camera3DFieldOfView": 45,
+          "camera3DNearPlaneDistance": 3,
+          "cameraType": "",
+          "followBaseLayerCamera": false,
+          "isLightingLayer": false,
+          "isLocked": false,
+          "name": "",
+          "renderingType": "",
+          "visibility": true,
+          "cameras": [
+            {
+              "defaultSize": true,
+              "defaultViewport": true,
+              "height": 0,
+              "viewportBottom": 1,
+              "viewportLeft": 0,
+              "viewportRight": 1,
+              "viewportTop": 0,
+              "width": 0
+            }
+          ],
+          "effects": [
+            {
+              "effectType": "Scene3D::HemisphereLight",
+              "name": "3D Ambient Hemisphere Light",
+              "doubleParameters": {
+                "elevation": 40,
+                "intensity": 0.33,
+                "rotation": 300
+              },
+              "stringParameters": {
+                "groundColor": "127;127;127",
+                "skyColor": "255;255;255",
+                "top": "Z+"
+              },
+              "booleanParameters": {}
+            },
+            {
+              "effectType": "Scene3D::DirectionalLight",
+              "name": "3D Sun Light",
+              "doubleParameters": {
+                "distanceFromCamera": 1500,
+                "elevation": 40,
+                "frustumSize": 4000,
+                "intensity": 0.75,
+                "minimumShadowBias": 0,
+                "rotation": 300
+              },
+              "stringParameters": {
+                "color": "255;255;255",
+                "shadowQuality": "medium",
+                "top": "Z+"
+              },
+              "booleanParameters": {
+                "isCastingShadow": true
+              }
+            }
+          ]
+        }
+      ],
+      "behaviorsSharedData": [
+        {
+          "name": "Animation",
+          "type": "AnimatableCapability::AnimatableBehavior"
+        },
+        {
+          "name": "Effect",
+          "type": "EffectCapability::EffectBehavior"
+        },
+        {
+          "name": "Flippable",
+          "type": "FlippableCapability::FlippableBehavior"
+        },
+        {
+          "name": "Opacity",
+          "type": "OpacityCapability::OpacityBehavior"
+        },
+        {
+          "name": "Resizable",
+          "type": "ResizableCapability::ResizableBehavior"
+        },
+        {
+          "name": "Scale",
+          "type": "ScalableCapability::ScalableBehavior"
+        }
+      ]
     }
   ],
   "layoutsFolderStructure": {
     "folderName": "__ROOT",
     "children": [
       {
-        "itemName": "Untitled scene"
+        "itemName": "Canh thu nghiem"
+      },
+      {
+        "itemName": "Level 1 Chinese Scene"
       }
     ]
   },
