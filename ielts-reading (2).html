@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>IELTS Reading Practice</title>
+<style>
+*{box-sizing:border-box}
+html,body{height:100%;margin:0}
+body{font-family:Arial,"Liberation Sans",Helvetica,sans-serif;color:#000;background:#fff;display:flex;flex-direction:column;font-size:17px}
+header{height:64px;flex:none;display:flex;align-items:center;gap:14px;padding:0 16px;border-bottom:1px solid #d9d9d9}
+.logo{width:40px;height:44px;position:relative;flex:none}
+.logo i{position:absolute;left:0;right:0;bottom:0;height:34px;background:#d0452f;border-radius:10px}
+.logo i:before,.logo i:after{content:"";position:absolute;top:12px;width:9px;height:9px;border-radius:50%;background:#fff}
+.logo i:before{left:7px}.logo i:after{right:7px}
+.logo:before{content:"";position:absolute;left:19px;top:0;width:2px;height:10px;background:#d0452f}
+.focus{display:flex;align-items:center;gap:10px;height:42px;padding:0 22px 0 24px;border:1px solid #ccc;background:#fff;font:bold 17px Arial,sans-serif;cursor:default}
+.t{line-height:1.25}.t b{font-size:21px;display:block;text-transform:uppercase}
+#remain{font-size:16px}
+#remain.low{color:#c8102e;font-weight:bold}
+.sp{flex:1}
+header svg{width:30px;height:30px;stroke:#111;fill:none;stroke-width:2;margin-left:22px}
+.banner{flex:none;margin:24px 24px 0;background:#f0f0ec;border:1px solid #e3e3df;border-radius:4px;padding:20px 24px;line-height:1.4}
+.banner b{font-size:23px;display:block;margin-bottom:2px}
+#result{display:none;flex:none;margin:12px 24px 0;padding:12px 20px;border:2px solid #111;font-size:18px}
+main{flex:1;min-height:0;display:flex;margin:24px 24px 0}
+.pane{overflow-y:auto;min-width:0;position:relative}
+#left{width:50%;padding:0 22px 40px 24px;line-height:1.7;font-size:18px}
+#right{flex:1;padding:0 30px 90px 40px}
+::-webkit-scrollbar{width:22px}
+::-webkit-scrollbar-thumb{background:#8c8c8c}
+::-webkit-scrollbar-track{background:#f2f2f2}
+#gutter{flex:none;width:2px;background:#222;position:relative;cursor:col-resize}
+#gutter span{position:absolute;top:50%;left:-19px;width:40px;height:50px;background:#fff;border:2px solid #222;display:flex;align-items:center;justify-content:center;font-size:22px;transform:translateY(-50%)}
+#left h1{font-size:25px;text-align:center;margin:14px 0 4px}
+#left .sub{font-style:italic;text-align:center;font-size:23px;margin:0 0 22px;line-height:1.5}
+#left p{margin:0 0 12px}
+#left .L{font-weight:bold;margin-right:8px;border:2px solid #111;border-radius:3px;padding:0 6px;font-size:16px}
+mark{background:#ffe94d;color:inherit;cursor:pointer}
+#right h2{font-size:22px;margin:6px 0 4px}
+#right .ins{margin:0 0 18px;line-height:1.5}
+.q{margin:0 0 26px;position:relative;padding-right:30px}
+.q .st{display:flex;gap:14px;align-items:center;line-height:1.5;margin-bottom:12px}
+.num{min-width:34px;height:34px;display:flex;align-items:center;justify-content:center;font-weight:bold;font-size:20px;border:2px solid transparent;border-radius:3px;flex:none}
+.q.cur .num{border-color:#1a63c8}
+.opts label{display:flex;align-items:center;gap:16px;padding:10px 12px;cursor:pointer;line-height:1.4}
+.opts input{appearance:none;-webkit-appearance:none;width:17px;height:17px;border:1.5px solid #666;border-radius:3px;margin:0;flex:none;background:#fff}
+.opts input:checked{border-color:#1a63c8;background:#1a63c8 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M3 8.5l3.2 3L13 4.5' stroke='%23fff' stroke-width='2' fill='none'/%3E%3C/svg%3E") center/100% no-repeat}
+.row{display:flex;gap:10px;flex-wrap:wrap;margin-left:48px}
+.row label{display:flex;align-items:center;gap:8px;padding:6px 12px;border:1px solid #bbb;border-radius:4px;cursor:pointer}
+.row input{appearance:none;-webkit-appearance:none;width:16px;height:16px;border:1.5px solid #666;border-radius:50%;margin:0;background:#fff}
+.row input:checked{border:5px solid #1a63c8}
+.fill{line-height:2.1}
+.fill input[type=text]{font:17px Arial;border:2px solid #777;border-radius:3px;padding:5px 8px;width:150px;margin:0 6px}
+.fill input[type=text]:focus{outline:0;border-color:#1a63c8}
+.fb{margin:8px 0 0 48px;font-weight:bold;font-size:16px}
+.q.ok .fb{color:#1a7f45}.q.ko .fb{color:#c8102e}
+.q.ok{background:#e8f6ec}.q.ko{background:#fdeaec}
+.box{border:1px solid #333;padding:14px 24px;margin:0 0 22px;line-height:2.1}
+.box h3{text-align:center;font-size:21px;margin:4px 0 10px}
+.box p{margin:0 0 12px}
+.people{line-height:1.8;width:max-content;max-width:100%}
+.q.bl{display:inline;margin:0;padding:0}
+.q.bl .num{display:inline-flex;vertical-align:middle;margin-right:2px}
+.q.bl input{font:17px Arial;border:2px solid #777;border-radius:3px;padding:4px 8px;width:150px;margin:0 4px}
+.q.bl input:focus{outline:0;border-color:#1a63c8}
+.q.bl .fb{display:inline;margin:0 4px;font-size:15px}
+.dgw{container-type:inline-size;max-width:954px;margin:0 0 22px}
+.dg{position:relative;font-family:Arial,sans-serif;font-size:17px;font-size:1.8cqw;line-height:1;color:#000}
+.dg img{display:block;width:100%;height:auto}
+.dg .lbl{position:absolute;display:flex;align-items:center;gap:.3em;white-space:nowrap;height:1.6em}
+.dg .lbl3{position:absolute;white-space:nowrap}
+.dg .lbl3>div{height:2.15em;display:flex;align-items:center;gap:.3em}
+.dg .q.bl{display:inline-flex;align-items:center;gap:.25em}
+.dg .q.bl .num{min-width:0;height:auto;font-size:1em;padding:0;margin:0}
+.dg .q.bl input{font:inherit;font-size:.75em;height:1.8em;padding:0 .3em;border:1.5px solid #777;margin:0}
+.dg .q.bl .fb{position:absolute;top:100%;left:0;white-space:nowrap;font-size:.8em;background:#fff;padding:0 .3em;margin:0;z-index:2}
+.opts.rd input{border-radius:50%}
+.opts.rd input:checked{border:5px solid #1a63c8;background:#fff}
+.q.bl select{font:17px Arial;padding:4px 6px;border:2px solid #777;border-radius:3px;margin:0 4px;background:#fff;color:#000}
+.phr{display:grid;grid-template-columns:repeat(3,max-content);gap:4px 30px;line-height:1.6;width:max-content;max-width:100%}
+#left .fn{font-size:15px;line-height:1.5;margin:0 0 4px}
+#left hr{margin:22px 0 10px;border:0;border-top:1px solid #888}
+.tb{border-collapse:collapse;width:100%;margin:0 0 22px}
+.tb th,.tb td{border:1px solid #333;padding:10px 14px;vertical-align:top;text-align:left;line-height:2}
+.tb ul{margin:4px 0;padding-left:22px}
+#arrows{position:fixed;right:132px;bottom:76px;display:flex;gap:12px;z-index:5}
+#arrows button{width:84px;height:84px;border:0;color:#fff;font-size:42px;cursor:pointer}
+#prev{background:#a9a9a9}#next{background:#000}
+footer{height:84px;flex:none;background:#f6f7f8;display:flex;align-items:center;padding-left:42px;position:relative;margin-top:12px}
+footer b{font-size:22px;margin-right:42px}
+#nav{display:flex;gap:2px;overflow-x:auto}
+#nav button{font:20px Arial;background:none;border:0;border-bottom:4px solid #ccc;border-radius:0;padding:6px 8px 4px;cursor:pointer;min-width:42px;margin-top:4px}
+#nav button.done{border-bottom-color:#555}
+#nav button.cur{outline:2px solid #1a63c8;outline-offset:-1px;border-radius:3px}
+#nav button.ok{border-bottom-color:#1a7f45;background:#d9f0e0}
+#nav button.ko{border-bottom-color:#c8102e;background:#fbd9de}
+#chk{position:absolute;right:0;top:0;height:100%;width:106px;border:0;background:#ececec;cursor:pointer}
+#chk svg{width:32px;height:32px;stroke:#111;stroke-width:2.5;fill:none}
+#tb{position:fixed;display:none;gap:2px;background:#222;border-radius:5px;padding:4px;z-index:20}
+#tb button{background:#222;color:#fff;border:0;padding:6px 12px;font:14px Arial;cursor:pointer}
+@media(max-width:850px){main{flex-direction:column;margin:12px}#left{width:100%!important;height:45%}#gutter{display:none}#right{padding:12px 4px 90px}.banner{margin:12px 12px 0}header svg{display:none}#arrows{right:12px}#arrows button{width:56px;height:56px}#chk{width:70px}}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo"><i></i></div>
+  <div class="focus"><svg style="width:22px;height:22px;margin:0" viewBox="0 0 24 24"><path d="M4 9V5h4M20 9V5h-4M4 15v4h4M20 15v4h-4"/><circle cx="12" cy="12" r="2.5"/></svg>Full focus <svg style="width:14px;height:14px;margin:0 0 0 4px" viewBox="0 0 24 24"><path d="M5 9l7 7 7-7"/></svg></div>
+  <div class="t"><b>What count as knowledge?</b><span id="remain">25 minutes remaining</span></div>
+  <div class="sp"></div>
+  <svg viewBox="0 0 24 24"><path d="M2 9a15 15 0 0120 0M5 12.5a10 10 0 0114 0M8.5 16a5 5 0 017 0"/><circle cx="12" cy="19.5" r="1" fill="#111"/></svg>
+  <svg viewBox="0 0 24 24"><path d="M6 17V11a6 6 0 0112 0v6l2 2H4zM10 21h4"/></svg>
+  <svg viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+</header>
+
+<div class="banner"><b>Part 3</b>Read the text and answer questions 27-40</div>
+<div id="result"></div>
+
+<main id="main">
+  <div class="pane" id="left"></div>
+  <div id="gutter"><span>↔</span></div>
+  <div class="pane" id="right"></div>
+</main>
+
+<div id="arrows"><button id="prev" title="Previous">←</button><button id="next" title="Next">→</button></div>
+
+<footer>
+  <b>Part 3</b>
+  <div id="nav"></div>
+  <button id="chk" title="Submit / Nộp bài"><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5"/></svg></button>
+</footer>
+<div id="tb"><button id="hb">Highlight</button><button id="cb">Clear</button></div>
+
+<script>
+/* ============ DỮ LIỆU BÀI THI (có thể sửa) ============ */
+const DURATION_MIN = 25;
+const TITLE = "What count as knowledge?";
+
+const PASSAGE = [
+["A","What do we mean when we say that we know something? What is the status of different kinds of knowledge? In order to explore these questions, we are going to focus on one particular area of knowledge-medicine."],
+["B","How do you know when you are ill? This may seem to be an absurd question. You know you are ill because you feel ill. You may know that you feel pain or discomfort, but knowing you are ill is a bit more complex. At times, people experience the symptoms of illness, but in fact, they are simply overworked. At other times, people may be suffering from a disease and fail to be aware of the illness until it has reached a late stage in its development. So how do we know we are ill, and what counts as knowledge?"],
+["C","Think about this example, showing different sources of knowledge. You feel unwell. You have a bad cough, and always you should give up smoking. You feel worse. You visit the doctor who listens to your chest and heart, takes your blood pressure, and then finally prescribes antibiotics for your cough."],
+["D","Things do not get any better, but you struggle on, thinking you should pull yourself together; perhaps things will ease off at work soon. A return visit to your doctor shocks you. This time, the doctor diagnoses pneumonia. This means that you will need bed rest and a considerable time off work. The scenario is transformed. Although you still have the same symptoms, you no longer think that these are caused by pressure at work. You now have proof that you are ill. This is the result of the combination of your own subjective experience and the diagnosis of someone who has the status of a medical expert. You have a medically authenticated diagnosis, and it appears that you are seriously ill; you know you are ill and have evidence upon which to base this knowledge."],
+["E","This example shows some of the different sources of knowledge we draw upon when seeking to know about health and illness, even to knowing whether or not we are ill. For example, you decide to consult the doctor in the first place because you feel unwell—this is personal knowledge about your own body. However, the doctor’s expert diagnosis is based on experience and training, with sources of knowledge as diverse as other experts, laboratory reports, medical textbooks, and years of experience. But how is all this medical knowledge produced?"],
+["F","One source of knowledge is the experience of our own bodies: the personal knowledge we have of changes that might be significant, as well as the subjective experience of pain and physical distress. These experiences are mediated by other forms of knowledge such as the words we have available to describe our experience and concepts drawn from popular culture. Over the past decade, for example, Western culture has seen a significant emphasis in the media on illness related to stress. Mention of being ‘stressed out’ has become a common response in daily exchanges in the workplace and has become part of popular common-sense knowledge. It is thus not surprising that we might seek such an explanation of physical symptoms of discomfort. We might also rely on the observations and common sense of others who know us. Comments from friends and family such as ‘you do look ill’ or ‘that’s a bad cough’ might be another source of knowledge. Complementary health practices, such as holistic medicine, produce their own sets of knowledge upon which we might also draw in deciding the nature and degree of our ill health and about possible treatments."],
+["G","Perhaps the most influential and authoritative source of knowledge is the medical knowledge provided by the general practitioner. We expect the doctor to have access to expert knowledge. This is socially sanctioned. It would not be acceptable to notify our employer that we simply felt too unwell to turn up for work or that our faith healer or astrologer thought it was not a good idea. We require an expert medical diagnosis in order to obtain the necessary certificate if we need to be off work for more than the statutory self-certification period. The knowledge of the medical sciences is privileged in this respect in contemporary Western culture. Medical practitioners are also seen as having the required expert knowledge that permits them to prescribe drugs legally and treatment to which patients would not otherwise have access. However, there is a range of different knowledges upon which we draw when making decisions about our own state of health."],
+["H","But there is more than existing knowledge in this little story; new knowledge is constructed within it. Given the medical training and background of doctors, they may formulate a hypothesis—‘is this now pneumonia?’—that takes into account the symptoms that are presented, and then proceed to look for evidence of it. They will use observations and instruments to assess the evidence and—critically—create an interpretation of it in the light of their training and experience. This results in new knowledge and new experience both for you and for the doctor. This will then be added to the doctor’s medical knowledge and may help in future diagnosis."]
+];
+
+/* Câu 27–32: điền KHÔNG QUÁ BA TỪ vào bảng. Đáp án chấp nhận nhiều biến thể  →  [số, "", "", [đáp án]] */
+const FILL = [
+ [27,"","",["bad cough","cough"]],
+ [28,"","",["blood pressure"]],
+ [29,"","",["diagnosis"]],
+ [30,"","",["stress"]],
+ [31,"","",["friends and family","friends family","friends & family","friends/family"]],
+ [32,"","",["holistic medicine"]]
+];
+/* Câu 33–40: chọn đoạn A–H  →  [số, nội dung, đáp án] */
+const MATCH = [
+ [33,"how our medical interpretations may be influenced by non-specialists","F"],
+ [34,"a description of how doctors are regarded within society","G"],
+ [35,"a contrast between the nature of a patient’s knowledge and the nature of a doctor’s knowledge","E"],
+ [36,"a claim that a patient’s condition may add something to a doctor’s knowledge","H"],
+ [37,"a reference to the document a doctor provides for sick leave","G"],
+ [38,"a reference to the fact that a particular phrase is now frequently used in conversation","F"],
+ [39,"examples of explanations for absence from work that would not be considered satisfactory","G"],
+ [40,"a reference to being ill without realising it","B"]
+];
+const RADIOS = MATCH;
+const NUMS = [...FILL.map(x=>x[0]),...MATCH.map(x=>x[0])];   // 27 … 40
+const TOTAL = NUMS.length;
+
+/* ============ XÂY GIAO DIỆN ============ */
+const $ = s => document.querySelector(s);
+let submitted = false, secs = DURATION_MIN*60, timer, cur = NUMS[0];
+
+function rowQ(n,t,vals){
+  return `<div class="q" id="q${n}" data-n="${n}"><div class="st"><span class="num">${n}</span><span>${t}</span></div>
+  <div class="row">${vals.map(v=>`<label><input type="radio" name="r${n}" value="${v}">${v}</label>`).join("")}</div><div class="fb"></div></div>`;
+}
+function blank(n,w){
+  return `<span class="q bl" id="q${n}" data-n="${n}"><b class="num">${n}</b><input type="text" name="f${n}" autocomplete="off" spellcheck="false" style="width:${w}em"><b class="fb"></b></span>`;
+}
+function build(){
+  $("#left").innerHTML = `<h1>${TITLE}</h1>` + PASSAGE.map(p=>`<p><span class="L">${p[0]}</span>${p[1]}</p>`).join("");
+
+  let h = `<h2>Questions 27-32</h2><p class="ins">Complete the table below.<br>Choose <b>NO MORE THAN THREE WORDS</b> from the passage for each answer.</p>
+  <table class="tb">
+   <tr><th style="width:34%">Argument</th><th>Examples/evidence</th></tr>
+   <tr><td>Knowledge can come from various sources</td><td>These include:<ul>
+     <li>personal experience (e.g. a ${blank(27,9)} and continuous tiredness)</li>
+     <li>scientific evidence (e.g. measurement of ${blank(28,9)})</li>
+     <li>doctor’s medical ${blank(29,9)} coming from professional experience and training</li></ul></td></tr>
+   <tr><td>Knowledge is ‘socially produced’</td><td>Ideas about illness may depend on:<ul>
+     <li>popular culture (e.g. illnesses connected with ${blank(30,9)})</li>
+     <li>common sense (e.g. remarks made by ${blank(31,11)})</li>
+     <li>alternative or complementary approaches to health care (e.g. ${blank(32,9)})</li></ul></td></tr>
+  </table>`;
+
+  h += `<h2 style="margin-top:34px">Questions 33-40</h2><p class="ins">Reading Passage 3 has eight paragraphs, <b>A–H</b>.<br>Which paragraph contains the following information?<br>Choose the correct letter, <b>A–H</b>.<br><i>NB You may use any letter more than once.</i></p>`;
+  MATCH.forEach(([n,t])=>h+=rowQ(n,t,"ABCDEFGH".split("")));
+
+  $("#right").innerHTML = h;
+  $("#nav").innerHTML = NUMS.map(i=>`<button data-n="${i}">${i}</button>`).join("");
+  setCur(NUMS[0]); refresh();
+}
+
+function getAnswers(){
+  const a={};
+  RADIOS.forEach(x=>{const c=document.querySelector(`input[name=r${x[0]}]:checked`);a[x[0]]=c?c.value:""});
+  FILL.forEach(x=>a[x[0]]=document.querySelector(`input[name=f${x[0]}]`).value.trim());
+  return a;
+}
+function refresh(){
+  if(submitted) return;
+  const a=getAnswers();
+  document.querySelectorAll("#nav button").forEach(b=>b.classList.toggle("done",!!a[b.dataset.n]));
+}
+function setCur(n){
+  cur=n;
+  document.querySelectorAll("#nav button").forEach(b=>b.classList.toggle("cur",+b.dataset.n===n));
+  document.querySelectorAll(".q").forEach(q=>q.classList.toggle("cur",+q.dataset.n===n));
+}
+function goTo(n){
+  const r=$("#right"), q=$("#q"+n);
+  const top=q.getBoundingClientRect().top-r.getBoundingClientRect().top+r.scrollTop-60;
+  r.scrollTo({top:Math.max(0,top),behavior:"smooth"});
+  setCur(n);
+}
+$("#nav").onclick=e=>{const b=e.target.closest("button");if(b)goTo(+b.dataset.n)};
+$("#prev").onclick=()=>goTo(NUMS[Math.max(0,NUMS.indexOf(cur)-1)]);
+$("#next").onclick=()=>goTo(NUMS[Math.min(NUMS.length-1,NUMS.indexOf(cur)+1)]);
+$("#right").addEventListener("input",refresh);
+$("#right").addEventListener("change",e=>{const q=e.target.closest(".q");if(q)setCur(+q.dataset.n);refresh()});
+$("#right").addEventListener("focusin",e=>{const q=e.target.closest(".q");if(q)setCur(+q.dataset.n)});
+
+/* ============ ĐỒNG HỒ ============ */
+function tick(){
+  secs--;
+  const m=Math.ceil(secs/60), r=$("#remain");
+  r.textContent = secs>=60 ? `${m} minute${m>1?"s":""} remaining` : `${secs} seconds remaining`;
+  r.classList.toggle("low",secs<=300);
+  if(secs<=0) submit();
+}
+
+/* ============ NỘP BÀI ============ */
+const norm=t=>t.toLowerCase().replace(/[‘’'"“”]/g,"").replace(/\s+/g," ").trim();
+function mark(q,ok,txt,navBtn){
+  q.classList.add(ok?"ok":"ko");
+  const inline=q.classList.contains("bl");
+  q.querySelector(".fb").textContent=(ok?(inline?"✓ ":"✓ Correct · "):(inline?"✗ ":"✗ Incorrect · "))+txt;
+  if(navBtn){navBtn.classList.remove("done");navBtn.classList.add(ok?"ok":"ko")}
+}
+function submit(){
+  if(submitted) return; submitted=true; clearInterval(timer);
+  const a=getAnswers(); let score=0;
+  const nb=n=>document.querySelector(`#nav button[data-n="${n}"]`);
+  FILL.forEach(([n,,,ks])=>{const ok=ks.includes(norm(a[n]));score+=ok;mark($("#q"+n),ok,ks[0]+(ok?"":(a[n]?` (you wrote “${a[n]}”)`:" (no answer)")),nb(n))});
+  MATCH.forEach(([n,,k])=>{const ok=a[n]===k;score+=ok;mark($("#q"+n),ok,`Answer: ${k}`+(a[n]?` (you chose ${a[n]})`:" (no answer)"),nb(n))});
+  document.querySelectorAll("#right input,#right select").forEach(e=>e.disabled=true);
+  const r=$("#result"); r.style.display="block";
+  r.innerHTML=`<b>Score: ${score}/${TOTAL}</b> &nbsp;·&nbsp; Time left: ${Math.floor(secs/60)}:${String(Math.max(secs,0)%60).padStart(2,"0")} &nbsp;·&nbsp; <a href="#" id="again" style="color:#1a63c8">Làm lại</a>`;
+  $("#again").onclick=e=>{e.preventDefault();location.reload()};
+  $("#remain").textContent="Submitted";
+  $("#right").scrollTop=0;
+}
+$("#chk").onclick=()=>{ if(!submitted && confirm("Bạn chắc chắn muốn nộp bài?")) submit(); };
+
+/* ============ HIGHLIGHT (bài đọc + đề bài) ============ */
+const tb=$("#tb"); let saved=null;
+function rootOf(r){const c=r.commonAncestorContainer;return c.nodeType===3?c.parentNode:c}
+function unwrap(m){const p=m.parentNode;m.replaceWith(...m.childNodes);p.normalize()}
+function wrapRange(r){
+  const walker=document.createTreeWalker(rootOf(r),NodeFilter.SHOW_TEXT);
+  const nodes=[];
+  while(walker.nextNode()){const n=walker.currentNode;if(r.intersectsNode(n))nodes.push(n)}
+  nodes.forEach(n=>{
+    if(!n.nodeValue.trim()) return;
+    if(n.parentNode.closest("mark,input,button,select,textarea,.fb")) return;
+    let s=0,e=n.nodeValue.length;
+    if(n===r.startContainer) s=r.startOffset;
+    if(n===r.endContainer) e=r.endOffset;
+    if(s>=e) return;
+    let t=n;
+    if(e<t.nodeValue.length) t.splitText(e);
+    if(s>0) t=t.splitText(s);
+    const m=document.createElement("mark");
+    t.parentNode.insertBefore(m,t); m.appendChild(t);
+  });
+}
+function clearRange(r){
+  const scope=rootOf(r).closest("#left,#right")||document.body;
+  scope.querySelectorAll("mark").forEach(m=>{if(r.intersectsNode(m))unwrap(m)});
+}
+function onSel(e){
+  const pane=e.currentTarget;
+  const mk=e.target.closest&&e.target.closest("mark");
+  if(mk && pane.id==="left" && getSelection().isCollapsed){unwrap(mk);return}
+  setTimeout(()=>{
+    const s=getSelection();
+    if(!s.rangeCount||s.isCollapsed){tb.style.display="none";return}
+    const r=s.getRangeAt(0);
+    if(!pane.contains(r.commonAncestorContainer)){tb.style.display="none";return}
+    saved=r.cloneRange();
+    const b=r.getBoundingClientRect();
+    tb.style.display="flex"; tb.style.left=Math.max(4,b.left)+"px"; tb.style.top=Math.max(4,b.top-42)+"px";
+  },10);
+}
+$("#left").addEventListener("mouseup",onSel);
+$("#right").addEventListener("mouseup",onSel);
+["#hb","#cb"].forEach(id=>$(id).addEventListener("mousedown",e=>e.preventDefault()));
+$("#hb").onclick=()=>{if(saved){wrapRange(saved);getSelection().removeAllRanges();tb.style.display="none";saved=null}};
+$("#cb").onclick=()=>{if(saved){clearRange(saved);getSelection().removeAllRanges();tb.style.display="none";saved=null}};
+document.addEventListener("mousedown",e=>{if(!tb.contains(e.target))tb.style.display="none"});
+
+/* ============ KÉO ĐỔI ĐỘ RỘNG 2 CỘT ============ */
+(function(){
+  let drag=false;
+  $("#gutter").addEventListener("mousedown",()=>{drag=true;document.body.style.userSelect="none"});
+  document.addEventListener("mouseup",()=>{drag=false;document.body.style.userSelect=""});
+  document.addEventListener("mousemove",e=>{
+    if(!drag) return;
+    const m=$("#main").getBoundingClientRect();
+    $("#left").style.width=Math.min(Math.max(e.clientX-m.left,280),m.width-360)+"px";
+  });
+})();
+
+build();
+timer=setInterval(tick,1000);
+</script>
+</body>
+</html>
