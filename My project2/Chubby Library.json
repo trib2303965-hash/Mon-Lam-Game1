@@ -1,7 +1,7 @@
 {
   "firstLayout": "",
   "gdVersion": {
-    "build": 283,
+    "build": 287,
     "major": 5,
     "minor": 6,
     "revision": 0
@@ -899,6 +899,14 @@
         "name": "elements game ct528  (resized2)-Photoroom",
         "smoothed": true,
         "userAdded": false
+      },
+      {
+        "file": "tileset_city.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "tileset_city.png",
+        "smoothed": true,
+        "userAdded": false
       }
     ]
   },
@@ -915,6 +923,7 @@
       "mangledName": "Canh_32thu_32nghiem",
       "name": "Canh thu nghiem",
       "r": 247,
+      "renderer3DWorldScale": 100,
       "standardSortMethod": true,
       "stopSoundsOnStartup": true,
       "title": "",
@@ -1078,6 +1087,22 @@
           "x": 145,
           "y": 274,
           "zOrder": 5,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "keepRatio": true,
+          "layer": "",
+          "name": "NewSprite2",
+          "persistentUuid": "2e23cfaa-818f-4252-9b3b-7f7fc6dbb28c",
+          "width": 0,
+          "x": 565,
+          "y": 356,
+          "zOrder": 6,
           "numberProperties": [],
           "stringProperties": [],
           "initialVariables": []
@@ -3130,6 +3155,67 @@
               ]
             }
           ]
+        },
+        {
+          "adaptCollisionMaskAutomatically": true,
+          "assetStoreId": "",
+          "name": "NewSprite2",
+          "persistentUuid": "385a1dfe-d1d6-43e8-901c-8dbaf556967b",
+          "type": "Sprite",
+          "updateIfNotVisible": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "animations": [
+            {
+              "name": "",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": false,
+                  "timeBetweenFrames": 0.08,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": true,
+                      "image": "tileset_city.png",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": [
+                        [
+                          {
+                            "x": 0,
+                            "y": 0
+                          },
+                          {
+                            "x": 256,
+                            "y": 0
+                          },
+                          {
+                            "x": 256,
+                            "y": 128
+                          },
+                          {
+                            "x": 0,
+                            "y": 128
+                          }
+                        ]
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
         }
       ],
       "objectsFolderStructure": {
@@ -3167,6 +3253,9 @@
           },
           {
             "objectName": "thung_hang"
+          },
+          {
+            "objectName": "NewSprite2"
           }
         ]
       },
@@ -3859,6 +3948,7 @@
       "mangledName": "Level_321_32Chinese_32Scene",
       "name": "Level 1 Chinese Scene",
       "r": 247,
+      "renderer3DWorldScale": 100,
       "standardSortMethod": true,
       "stopSoundsOnStartup": true,
       "title": "",
@@ -4296,7 +4386,27 @@
       ]
     }
   ],
+  "layoutsFolderStructure": {
+    "folderName": "__ROOT",
+    "children": [
+      {
+        "itemName": "Canh thu nghiem"
+      },
+      {
+        "itemName": "Level 1 Chinese Scene"
+      }
+    ]
+  },
   "externalEvents": [],
+  "externalEventsFolderStructure": {
+    "folderName": "__ROOT"
+  },
+  "testsFolderStructure": {
+    "folderName": "__ROOT"
+  },
   "eventsFunctionsExtensions": [],
-  "externalLayouts": []
+  "externalLayouts": [],
+  "externalLayoutsFolderStructure": {
+    "folderName": "__ROOT"
+  }
 }
